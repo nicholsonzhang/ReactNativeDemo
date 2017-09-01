@@ -11,7 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-
+import SectionListBasics from './js/SectionListBasics';
 export default class reactnative extends Component {
   render() {
     return (
@@ -50,4 +50,5 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('reactnative', () => reactnative);
+
+AppRegistry.registerComponent('reactnative', () => SectionListBasics);
