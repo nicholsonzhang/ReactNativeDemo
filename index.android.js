@@ -4,51 +4,37 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import SectionListBasics from './js/SectionListBasics';
-export default class reactnative extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to    React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import React,{Component}from 'react';
+import {AppRegistry,Image,View,Text} from 'react-native';
+import {TabNavigator,StackNavigator} from 'react-navigation';
+import HomeScreen from './js/HomeScreen';
+import ChatScreen from './js/ChatScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+import {RecentChatScreen,AllContactsScreen} from './js/App';
+import FadeInView from "./js/FadeInView";
+
+const MainScreenNavigator = TabNavigator({
+    Recent:{screen:RecentChatScreen},
+    All:{screen:AllContactsScreen},
 });
 
 
-AppRegistry.registerComponent('reactnative', () => SectionListBasics);
+const stackNavigator = StackNavigator({
+    Home:{screen:HomeScreen},
+    Chat:{screen:ChatScreen},
+    }
+);
+
+export default class Test extends Component{
+    render(){
+        return(
+           <FadeInView style ={{width:260,height:50,backgroundColor:'powderblue'}}>
+
+               <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}> Fading in</Text>
+           </FadeInView>
+        );
+    }
+}
+
+
+AppRegistry.registerComponent('reactnative', () => Test);
